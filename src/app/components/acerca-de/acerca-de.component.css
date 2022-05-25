@@ -1,0 +1,28 @@
+@media (min-width: 576px){
+    #foto-perfil{
+        position: absolute;
+        width: 15%;
+        border-radius: 50%;
+        box-shadow: 0.15rem 0.15rem rgba(99, 97, 97, 0.527) ;
+        left: 1%;
+    }
+}
+@media (max-width: 575px){
+    #foto-perfil{
+        border-radius: 50%;
+    }
+}
+.row{
+    padding-top: 1%;
+    
+}
+
+#nombre{
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 1rem;
+}
+#titulo{
+    font-weight: bold;
+    font-size: medium;
+}
