@@ -1,7 +1,7 @@
 div{
     height: 5rem;
-    overflow: visible;
-    position: absolute;
+    /* overflow: visible; */
+   
 }
 #logoAP{
     width: 8rem;
