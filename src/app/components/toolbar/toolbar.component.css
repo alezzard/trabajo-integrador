@@ -1,0 +1,14 @@
+div{
+    height: 5rem;
+    overflow: visible;
+    position: absolute;
+}
+#logoAP{
+    width: 8rem;
+}
+a img{
+    float: right;
+    width: 2rem;
+    position: relative;
+    top: 1rem;
+}
