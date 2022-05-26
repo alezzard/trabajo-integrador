@@ -1,14 +1,13 @@
 div{
-    height: 5rem;
-    /* overflow: visible; */
-   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 #logoAP{
     width: 8rem;
 }
 a img{
     float: right;
-    width: 2rem;
+    width: 2.5rem;
     position: relative;
-    top: 1rem;
 }
