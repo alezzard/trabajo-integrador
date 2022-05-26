@@ -4,4 +4,17 @@
     margin:  0;
     top: 5rem;
 }
-div{background-color: red;}
+div{
+    color: #d9d2d2;
+}
+
+.card{
+    padding: 1rem;
+    background-color: #363636;
+    transition: box-shadow 0.5s ease;
+    margin-bottom: 1rem;
+}
+
+.card:hover{
+     box-shadow: 0.3rem 0.5rem 0.7rem rgba(0, 0, 0, 0.60);
+}

@@ -1,0 +1,11 @@
+ h2,
+ h3 {
+     display: inline;
+ }
+
+ @media(min-width: 768px) {
+     .proyecto {
+         display: flex;
+         align-items: center;
+     }
+ }
