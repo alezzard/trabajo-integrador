@@ -10,6 +10,9 @@
 @media (max-width: 575px){
     #foto-perfil{
         border-radius: 50%;
+        width: 50%;
+        position: relative;
+        left: 25%;
     }
 }
 .row{
