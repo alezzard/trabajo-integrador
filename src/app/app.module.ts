@@ -12,6 +12,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HabilidadesComponent } from './components/habilidades/habilidades.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,14 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       outerStrokeWidth: 16,
       innerStrokeWidth: 8,
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
-      animationDuration: 300,
-    })
+      animationDuration: 300})
   ],
   providers: [],
   bootstrap: [AppComponent]

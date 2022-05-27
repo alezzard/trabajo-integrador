@@ -1,16 +1,29 @@
-div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+@media (max-width: 575px) {
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
 }
-#logoAP{
+@media (min-width: 576px) {
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+#logoAP {
     width: 8rem;
 }
-a img{
+
+a img {
     float: right;
     width: 2.5rem;
     position: relative;
 }
-button{
+
+button {
     margin-right: 1rem;
 }
