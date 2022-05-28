@@ -13,6 +13,7 @@ import { HabilidadesComponent } from './components/habilidades/habilidades.compo
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule} from '@angular/common/http';
     ExpItemComponent,
     HabilidadesComponent,
     ProyectosComponent,
-    FooterComponent
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +34,16 @@ import { HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
-      outerStrokeWidth: 16,
-      innerStrokeWidth: 8,
-      outerStrokeColor: "#78C000",
-      innerStrokeColor: "#C7E596",
-      animationDuration: 300})
+      titleColor: "#d9d2d2",
+      titleFontSize:"2.5rem",
+      showSubtitle: false,
+      showUnits: false,
+      outerStrokeWidth: 10,
+      innerStrokeWidth: 1,
+      outerStrokeColor: "#0d6efd",
+      innerStrokeColor: "#afc8fe",
+      animation:true,
+      animationDuration: 700})
   ],
   providers: [],
   bootstrap: [AppComponent]

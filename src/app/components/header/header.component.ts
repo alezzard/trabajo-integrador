@@ -3,11 +3,11 @@ import { persona } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
 
 @Component({
-  selector: 'app-acerca-de',
-  templateUrl: './acerca-de.component.html',
-  styleUrls: ['./acerca-de.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class AcercaDeComponent implements OnInit {
+export class HeaderComponent implements OnInit {
 
   persona:persona = new persona("","","","","","","","","");
 
@@ -16,5 +16,6 @@ export class AcercaDeComponent implements OnInit {
   ngOnInit(): void {
     this.personaService.getPersona().subscribe(data => {this.persona = data});
   }
+
 
 }
