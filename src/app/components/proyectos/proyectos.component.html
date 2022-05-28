@@ -1,15 +1,14 @@
 <div class="row">
     <h1>Proyectos realizados</h1>
-    <div class="proyecto">
+    <div class="proyecto" *ngFor="let proy of proyectos">
         <div class="col-sm-12 col-md-7 col-lg-7 texto">
-            <h2>Proyecto </h2> - <h3>Fecha</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero eaque voluptas iste minima mollitia ex,
-                similique molestiae, illum necessitatibus minus vel sunt consequatur! A quas porro ex! Nesciunt, tenetur
-                obcaecati.</p>
+            <h2>{{proy.nombre}}</h2> - <h3>{{proy.periodo}}</h3>
+            <p>{{proy.descripcion}}</p>
         </div>
         <div class="col-sm-12 col-md-4 offset-md-1 col-lg-4 offset-lg-1 imagen">
-            <img src="https://cdn-sp.radionacional.com.ar/wp-content/uploads/2021/12/Diseno-sin-titulo-1-1.png"
-                class="img-fluid">
+            <a href={{proy.link}}>
+                <img src={{proy.imgProyecto}} class="img-fluid">
+            </a>
         </div>
     </div>
 </div>

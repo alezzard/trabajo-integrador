@@ -1,10 +1,4 @@
 <div class="row">
     <h1>Experiencia Laboral</h1>
-    <div class="col-lg-1"></div>
-    <div class="col-lg-11">
-        <ul>
-            <li><app-exp-item></app-exp-item></li>
-            <li><app-exp-item></app-exp-item></li>
-        </ul>
-    </div>
+    <app-exp-item *ngFor="let expLaboral of experiencias" [exp]="expLaboral"></app-exp-item>
 </div>

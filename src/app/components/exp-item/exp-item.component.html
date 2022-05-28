@@ -1,3 +1,10 @@
-<h2>experiencia nº</h2> - <h3>año</h3>
-<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus magni ab soluta ipsa corporis, eum voluptatum tempore possimus accusantium cupiditate exercitationem! Quaerat illo molestias odit id corrupti nesciunt ipsa mollitia.</p>
-
+<div class="exp">
+    <div class="col-sm-12 col-md-7 col-lg-7 texto">
+        <h2>{{exp.titulo}}</h2> - <h3>{{exp.periodo}}</h3>
+        <p>{{exp.descripcion}}</p> 
+    </div>
+    <div class="col-sm-12 col-md-4 offset-md-1 col-lg-4 offset-lg-1 imagen">
+        <img src={{exp.imgLogo}}
+            class="img-fluid">
+    </div>
+</div>

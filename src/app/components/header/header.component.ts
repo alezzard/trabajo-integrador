@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
 
   persona:persona = new persona("","","","","","","","","");
 
-  constructor(public personaService: PersonaService) { }
+  constructor(private personaService: PersonaService) { }
 
   ngOnInit(): void {
     this.personaService.getPersona().subscribe(data => {this.persona = data});

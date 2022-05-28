@@ -7,5 +7,6 @@
      .proyecto {
          display: flex;
          align-items: center;
+         margin-bottom: 0.8rem;
      }
  }

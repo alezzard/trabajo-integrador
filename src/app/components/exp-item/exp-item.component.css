@@ -1,4 +1,12 @@
  h2,h3{
      display: inline;
  }
+
+ @media(min-width: 768px) {
+     .exp {
+         display: flex;
+         align-items: center;
+         margin-bottom: 0.8rem;
+     }
+ }
  

@@ -1,39 +1,10 @@
 <div class="row">
     <H1>Hard and soft skills</H1>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
+    <div class="col-sm-12 col-md-6 col-lg-4 text-center"
+          *ngFor="let hab of habilidades">
         <circle-progress
-      [percent]="80"
-      [title]="'HTML'"
-    ></circle-progress>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-        <circle-progress
-      [percent]="55"
-      [title]="'css'"
-    ></circle-progress>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-        <circle-progress
-      [percent]="75"
-      [title]="'ts'"
-    ></circle-progress>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-        <circle-progress
-      [percent]="85"
-      [title]="'Python'"
-    ></circle-progress>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-        <circle-progress
-      [percent]="75"
-      [title]="'Java'"
-    ></circle-progress>
-    </div>
-    <div class="col-sm-12 col-md-6 col-lg-4 text-center">
-        <circle-progress
-      [percent]="65"
-      [title]="'MySQL'"
+      [percent]="hab.porcentaje"
+      [imageSrc]="hab.imgLogo"
     ></circle-progress>
     </div>
 </div>
