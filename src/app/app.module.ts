@@ -14,6 +14,9 @@ import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
+import { LoginComponent } from './components/login/login.component';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,12 +29,15 @@ import { HeaderComponent } from './components/header/header.component';
     HabilidadesComponent,
     ProyectosComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       titleColor: "#d9d2d2",
