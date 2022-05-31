@@ -1,11 +1,13 @@
 <div class="bg-primary w-100">
     <div id="imagen">
-        <img src="../../../assets/APLogo.png" id="logoAP">    
+            <img src="../../../assets/APLogo.png" id="logoAP">    
     </div>
     <div id="links">
         <a  href={{persona?.linkedin}}><img src="../../../assets/linkedin.png" alt=""></a>
         <a  href={{persona?.instagram}}><img src="../../../assets/instagram.png" alt=""></a>
         <a  href={{persona?.github}}><img src="../../../assets/github.png" alt=""></a>
-        <button class="btn btn-outline-light">INGRESAR</button> 
+        <button  class="btn btn-outline-light" (click)="onIngresar($event)">INGRESAR</button>
+         
     </div>
+    
 </div> 

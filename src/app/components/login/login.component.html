@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="row">
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
                 <div >
                   <label for="exampleInputEmail1" class="form-label">Ingrese su Email:</label>
                   <input type="email" formControlName="email" class="form-control"
@@ -22,7 +22,7 @@
                     <p *ngIf="Password?.hasError('minlength')" class="text-danger">La contraseña debe ser de 8 caracteres o más.</p>
                 </div> 
                 </div><br><br>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button type="submit" class="btn btn-primary">Enviar</button><br><br>
               </form>
         </div>
     </div>

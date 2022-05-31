@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { LoginService } from 'src/app/services/login.service';
 export class LoginComponent implements OnInit {
   form:FormGroup;
 
-  constructor(private loginService: LoginService, private formBuilder:FormBuilder) { 
+  constructor(private loginService: LoginService, private formBuilder:FormBuilder,private rutas:Router) { 
     this.form = this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(8)]]
@@ -26,9 +27,15 @@ export class LoginComponent implements OnInit {
     this.loginService.login(user).subscribe(data => {
       console.log(data);
       this.loginService.setToken(data.token);
-      //puedo desde acá navegar de nuevo al portfoio
+      
     })
   }
+
+  onEnviar(event:Event){
+    event.preventDefault();
+    this.rutas.navigate(['portfolio'])
+  }
+
   ngOnInit(): void {
   }
 }

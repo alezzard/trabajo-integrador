@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { persona } from 'src/app/model/persona.model';
 
 @Component({
@@ -10,7 +11,11 @@ export class ToolbarComponent implements OnInit {
 
   @Input() persona?:persona;
 
-  constructor() { }
+  constructor(private rutas:Router) { }
+
+  onIngresar(event:Event){
+    this.rutas.navigate(['login'])
+  }
 
   ngOnInit(): void {
   }
