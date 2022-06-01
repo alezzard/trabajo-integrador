@@ -11,7 +11,6 @@ export class LoginService {
   URL = 'http://localhost:8080/login'
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient ) {
-    console.log("LoginService corriendo");
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem("currentUser")||'{}'));
    }
 
@@ -27,8 +26,6 @@ export class LoginService {
 
  
   get currentUserSubjectValue(){
-    console.log("loginService        get currentUserSubjectValue         :" +
-    JSON.stringify(this.currentUserSubject.value))
     return this.currentUserSubject.value;
   }
  
