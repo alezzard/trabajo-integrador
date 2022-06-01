@@ -22,18 +22,12 @@ export class LoginComponent implements OnInit {
  
  get Password(){ return this.form.get("password");} 
   
-  login(){
-    const user = {email: this.form.get("email"), password : this.form.get("password")};
-    this.loginService.login(user).subscribe(data => {
-      console.log(data);
-      this.loginService.setToken(data.token);
-      
-    })
-  }
-
   onEnviar(event:Event){
     event.preventDefault();
-    this.rutas.navigate(['portfolio'])
+    this.loginService.login(this.form.value).subscribe(data => {
+      console.log("datos recividos de la api"+JSON.stringify(data));
+      this.rutas.navigate(['portfolio'])
+  })
   }
 
   ngOnInit(): void {
