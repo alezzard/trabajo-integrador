@@ -7,17 +7,25 @@ import { LoginService } from './login.service';
 })
 export class InterceptorService implements HttpInterceptor{
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService) {
+    console.log("interceptor corriendo:")
+   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const currentUser = this.loginService.currentUserSubjectValue;
+    var currentUser = this.loginService.currentUserSubjectValue;
     let request = req;
-    if(currentUser.token){
+    
+    console.log("Interceptor          currentUser:" +
+                  JSON.stringify(currentUser))
+
+    if(currentUser && currentUser.token){
       request = req.clone({
         setHeaders:{
           authorization: `Bearer ${ currentUser.token }`
         }
       });
     } 
+    console.log("interceptor         next.handler:    (currentUser)" + 
+                JSON.stringify(currentUser))
     return next.handle(request);
   }
 }

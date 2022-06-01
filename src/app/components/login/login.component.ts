@@ -25,7 +25,11 @@ export class LoginComponent implements OnInit {
   onEnviar(event:Event){
     event.preventDefault();
     this.loginService.login(this.form.value).subscribe(data => {
-      console.log("datos recividos de la api"+JSON.stringify(data));
+      console.log("(onEnviar(): datos recividos de la api"+JSON.stringify(data));
+      
+      console.log("loginComponent    sessionStorage(currentUser)     :"
+      + sessionStorage.getItem("currentUser"))
+      
       this.rutas.navigate(['portfolio'])
   })
   }

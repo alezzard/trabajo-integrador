@@ -20,12 +20,15 @@ export class LoginService {
   login(user: any): Observable<any>{
     return this.http.post(this.URL,user).pipe(map(data =>{
       sessionStorage.setItem('currentUser', JSON.stringify(data));
+      this.currentUserSubject.next(data);
       return data;
       }));
   }
 
  
   get currentUserSubjectValue(){
+    console.log("loginService        get currentUserSubjectValue         :" +
+    JSON.stringify(this.currentUserSubject.value))
     return this.currentUserSubject.value;
   }
  
