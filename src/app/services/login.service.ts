@@ -30,17 +30,14 @@ export class LoginService {
   }
  
   loggedIn() {
-    if (sessionStorage.getItem('token')) {
+    if (sessionStorage.getItem('currentUser')) {
       return true;
     }
     return false;
   }
 
-  getToken(){
-    return sessionStorage.getItem('token');
-  }
-
+  
   logout() {
-    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('currentUser');
   }
 }

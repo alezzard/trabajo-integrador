@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { persona } from 'src/app/model/persona.model';
 import { PersonaService } from 'src/app/services/persona.service';
 
@@ -8,8 +8,9 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-
   persona:persona = new persona("","","","","","","","","");
+
+  @Input() editable?: boolean;
 
   constructor(private personaService: PersonaService) { }
 

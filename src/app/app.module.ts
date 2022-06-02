@@ -18,6 +18,8 @@ import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './services/interceptor.service';
+import { BotonComponent } from './components/boton/boton.component';
+import { ModalEditarComponent } from './components/modal-editar/modal-editar.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { InterceptorService } from './services/interceptor.service';
     FooterComponent,
     HeaderComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    BotonComponent,
+    ModalEditarComponent
   ],
   imports: [
     BrowserModule,

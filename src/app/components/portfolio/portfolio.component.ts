@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn: boolean;
+
+  constructor(private loginService: LoginService) {
+    this.isLoggedIn = this.loginService.loggedIn();
+    
+   }
 
   ngOnInit(): void {
   }
