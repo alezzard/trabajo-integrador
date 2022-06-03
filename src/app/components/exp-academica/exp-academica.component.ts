@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 
@@ -9,6 +9,8 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 })
 export class ExpAcademicaComponent implements OnInit {
   experiencias : experiencia[] = [];
+
+  @Input() editable?: boolean;
 
   constructor(private experienciaService : ExperienciaService) { }
 

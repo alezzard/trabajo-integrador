@@ -6,5 +6,9 @@
       [percent]="hab.porcentaje"
       [imageSrc]="hab.imgLogo"
     ></circle-progress>
+    <div *ngIf="editable">
+      <app-boton></app-boton>
+      <app-modal-editar></app-modal-editar>
+  </div> 
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { habilidad } from 'src/app/model/habilidad.model';
 import { HabilidadService } from 'src/app/services/habilidad.service';
 
@@ -9,6 +9,8 @@ import { HabilidadService } from 'src/app/services/habilidad.service';
 })
 export class HabilidadesComponent implements OnInit {
   habilidades : habilidad[] = [];
+
+  @Input() editable?: boolean;
 
   constructor(private habilidadService : HabilidadService) { }
 

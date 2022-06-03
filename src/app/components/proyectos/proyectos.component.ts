@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { proyecto } from 'src/app/model/proyecto.model';
 import { ProyectoService } from 'src/app/services/proyecto.service';
 
@@ -9,6 +9,8 @@ import { ProyectoService } from 'src/app/services/proyecto.service';
 })
 export class ProyectosComponent implements OnInit {
   proyectos : proyecto[] = [];
+
+  @Input() editable?: boolean;
 
   constructor(private proyectoService : ProyectoService) { }
   

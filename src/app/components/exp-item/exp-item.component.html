@@ -6,5 +6,9 @@
     <div class="col-sm-12 col-md-4 offset-md-1 col-lg-4 offset-lg-1 imagen">
         <img src={{exp.imgLogo}}
             class="img-fluid">
+            <div *ngIf="editable">
+                <app-boton></app-boton>
+                <app-modal-editar></app-modal-editar>
+            </div> 
     </div>
 </div>

@@ -9,6 +9,8 @@ import { experiencia } from 'src/app/model/experiencia.model';
 export class ExpItemComponent implements OnInit {
    @Input() exp: experiencia = new experiencia("","","","");
 
+   @Input() editable?: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
