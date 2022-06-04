@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row"><H1>Iniciar Sesión</H1>
             <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
-                <div >
+                <div>
                   <label for="exampleInputEmail1" class="form-label">Ingrese su Email:</label>
                   <input type="email" formControlName="email" class="form-control"
                   [ngClass]="{'is-invalid':Email?.errors && Email?.touched, 'is-valid':!Email?.errors && Email?.touched}"

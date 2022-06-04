@@ -1,0 +1,10 @@
+.modal-header{
+    border-bottom:  1rem solid #363636;
+}
+form{
+    color: #d9d2d2;
+    background-color: #363636;
+}
+.modal-footer{
+    border-top:  1rem solid #363636;
+}
