@@ -13,7 +13,8 @@ export class BotonComponent implements OnInit {
   @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
 
   constructor() { 
-    this.par = true;
+    this.par = false;
+    this.label = "#habilidad"
   }
 
   onClickButtonEdit(event : MouseEvent){

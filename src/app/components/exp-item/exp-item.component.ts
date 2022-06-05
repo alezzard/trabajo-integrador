@@ -7,7 +7,7 @@ import { experiencia } from 'src/app/model/experiencia.model';
   styleUrls: ['./exp-item.component.css']
 })
 export class ExpItemComponent implements OnInit {
-   @Input() exp: experiencia = new experiencia("","","","");
+   @Input() exp: experiencia = new experiencia(0,"","","","");
 
    @Input() editable?: boolean;
 

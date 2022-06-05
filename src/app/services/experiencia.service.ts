@@ -19,4 +19,8 @@ export class ExperienciaService {
   public getExperienciasAcademicas(): Observable<experiencia[]>{
     return this.http.get<experiencia[]>(this.URL+ 'traer/academica');
   }
+
+ /*  public putExperiencia(id:number, exp :experiencia): Observable<experiencia>{
+    return this.http.put<experiencia>(this.URL + "editar/"+ id, );
+  } */
 }

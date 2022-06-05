@@ -19,7 +19,10 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './services/interceptor.service';
 import { BotonComponent } from './components/boton/boton.component';
-import { ModalEditarComponent } from './components/modal-editar/modal-editar.component';
+import { ModalPersonaComponent } from './components/modals/modal-persona/modal-persona.component';
+import { ModalExperienciaComponent } from './components/modals/modal-experiencia/modal-experiencia.component';
+import { ModalHabilidadComponent } from './components/modals/modal-habilidad/modal-habilidad.component';
+import { ModalProyectoComponent } from './components/modals/modal-proyecto/modal-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ModalEditarComponent } from './components/modal-editar/modal-editar.com
     LoginComponent,
     PortfolioComponent,
     BotonComponent,
-    ModalEditarComponent
+    ModalPersonaComponent,
+    ModalExperienciaComponent,
+    ModalHabilidadComponent,
+    ModalProyectoComponent
   ],
   imports: [
     BrowserModule,
