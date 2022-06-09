@@ -7,7 +7,7 @@
         <img src={{exp.imgLogo}}
             class="img-fluid">
             <div *ngIf="editable">
-                <app-modal-experiencia></app-modal-experiencia>
+                <app-modal-experiencia [exp]="exp"></app-modal-experiencia>
             </div> 
     </div>
 </div>

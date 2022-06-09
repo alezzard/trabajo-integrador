@@ -16,7 +16,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './services/interceptor.service';
 import { BotonComponent } from './components/boton/boton.component';
 import { ModalPersonaComponent } from './components/modals/modal-persona/modal-persona.component';
@@ -48,7 +48,7 @@ import { ModalProyectoComponent } from './components/modals/modal-proyecto/modal
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,FormsModule,
     NgCircleProgressModule.forRoot({
       radius: 100,
       titleColor: "#d9d2d2",
