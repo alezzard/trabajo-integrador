@@ -1,107 +1,236 @@
-<button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
-        <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
-      </svg>
-</button> 
-  
-<button type="button" class="btn btn-danger" (click)="onClickButtonDelete($event)">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-      </svg>
-</button>
-<div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <div class="modal-content">
-            <div class="modal-header bg-primary">
-                <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<ng-template [ngSwitch]="option">
+    <ng-template *ngSwitchCase="1">
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+        </button> 
+        
+        <div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form [formGroup]="formPersona">
+                        <div class="modal-body">
+                            <!-- linkedin -->
+                            <div>
+                                <label for="InputLinkedin" class="form-label">Ingrese el link de linkedin:</label>
+                                <input type="text" formControlName="linkedin" class="form-control"
+                                    [ngClass]="{'is-invalid':Linkedin?.errors && Linkedin?.touched, 'is-valid':!Linkedin?.errors && Linkedin?.touched}"
+                                    id="InputLinkedin">
+                                <div *ngIf="Linkedin?.errors && Linkedin?.touched">
+                                    <p *ngIf="Linkedin?.hasError('maxlength')" class="text-danger">La URL no puede contener más
+                                        de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                            <!-- instagram -->
+                            <div>
+                                <label for="InputInstagram" class="form-label">Ingrese el link de instagram:</label>
+                                <input type="text" formControlName="instagram" class="form-control"
+                                    [ngClass]="{'is-invalid':Instagram?.errors && Instagram?.touched, 'is-valid':!Instagram?.errors && Instagram?.touched}"
+                                    id="InputInstagram">
+                                <div *ngIf="Instagram?.errors && Instagram?.touched">
+                                    <p *ngIf="Instagram?.hasError('maxlength')" class="text-danger">La URL no puede contener más
+                                        de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                            <!-- github -->
+                            <div>
+                                <label for="InputGithub" class="form-label">Ingrese el link de github:</label>
+                                <input type="text" formControlName="github" class="form-control"
+                                    [ngClass]="{'is-invalid':Github?.errors && Github?.touched, 'is-valid':!Github?.errors && Github?.touched}"
+                                    id="InputGithub">
+                                <div *ngIf="Github?.errors && Github?.touched">
+                                    <p *ngIf="Github?.hasError('maxlength')" class="text-danger">La URL no puede contener más
+                                        de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                        </div>
+                        <div class="modal-footer bg-primary">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form [formGroup]="formPersona">
-                <div class="modal-body">
-                    <!-- fullName -->
-                    <div>
-                        <label for="InputFullName" class="form-label">Ingrese el nombre completo:</label>
-                        <input type="text" formControlName="fullName" class="form-control"
-                        [ngClass]="{'is-invalid':FullName?.errors && FullName?.touched, 'is-valid':!FullName?.errors && FullName?.touched}"
-                        id="InputFullName" >
-                        <div *ngIf="FullName?.errors && FullName?.touched">                                    
-                            <p *ngIf="FullName?.hasError('maxlength')" class="text-danger">La URL no puede contener más de 2000 caracteres.</p>
-                        </div>  
-                    </div><br><br>
-                    <!-- titulo -->
-                    <div>
-                        <label for="InputTitulo" class="form-label">Ingrese el titulo:</label>
-                        <input type="text" formControlName="titulo" class="form-control"
-                            [ngClass]="{'is-invalid':Titulo?.errors && Titulo?.touched, 'is-valid':!Titulo?.errors && Titulo?.touched}"
-                            id="InputTitulo">
-                        <div *ngIf="Titulo?.errors && Titulo?.touched">
-                            <p *ngIf="Titulo?.hasError('maxlength')" class="text-danger">La URL no puede contener más de
-                                2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                    <!-- descripcion -->
-                    <div>
-                        <label for="InputDescripcion" class="form-label">Ingrese la descripcion:</label>
-                        <input type="text" formControlName="descripcion" class="form-control"
-                            [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}"
-                            id="InputDescripcion">
-                        <div *ngIf="Descripcion?.errors && Descripcion?.touched">
-                            <p *ngIf="Descripcion?.hasError('maxlength')" class="text-danger">La URL no puede contener
-                                más de 2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                    <!-- imgPerfil -->
-                    <div>
-                        <label for="InputImgPerfil" class="form-label">Ingrese la URL de la imagen:</label>
-                        <input type="text" formControlName="imgPerfil" class="form-control"
-                            [ngClass]="{'is-invalid':ImgPerfil?.errors && ImgPerfil?.touched, 'is-valid':!ImgPerfil?.errors && ImgPerfil?.touched}"
-                            id="InputImgPerfil">
-                        <div *ngIf="ImgPerfil?.errors && ImgPerfil?.touched">
-                            <p *ngIf="ImgPerfil?.hasError('maxlength')" class="text-danger">La URL no puede contener más
-                                de 2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                    <!-- linkedin -->
-                    <div>
-                        <label for="InputLinkedin" class="form-label">Ingrese el link de linkedin:</label>
-                        <input type="text" formControlName="linkedin" class="form-control"
-                            [ngClass]="{'is-invalid':Linkedin?.errors && Linkedin?.touched, 'is-valid':!Linkedin?.errors && Linkedin?.touched}"
-                            id="InputLinkedin">
-                        <div *ngIf="Linkedin?.errors && Linkedin?.touched">
-                            <p *ngIf="Linkedin?.hasError('maxlength')" class="text-danger">La URL no puede contener más
-                                de 2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                    <!-- instagram -->
-                    <div>
-                        <label for="InputInstagram" class="form-label">Ingrese el link de instagram:</label>
-                        <input type="text" formControlName="instagram" class="form-control"
-                            [ngClass]="{'is-invalid':Instagram?.errors && Instagram?.touched, 'is-valid':!Instagram?.errors && Instagram?.touched}"
-                            id="InputInstagram">
-                        <div *ngIf="Instagram?.errors && Instagram?.touched">
-                            <p *ngIf="Instagram?.hasError('maxlength')" class="text-danger">La URL no puede contener más
-                                de 2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                    <!-- github -->
-                    <div>
-                        <label for="InputGithub" class="form-label">Ingrese el link de github:</label>
-                        <input type="text" formControlName="github" class="form-control"
-                            [ngClass]="{'is-invalid':Github?.errors && Github?.touched, 'is-valid':!Github?.errors && Github?.touched}"
-                            id="InputGithub">
-                        <div *ngIf="Github?.errors && Github?.touched">
-                            <p *ngIf="Github?.hasError('maxlength')" class="text-danger">La URL no puede contener más
-                                de 2000 caracteres.</p>
-                        </div>
-                    </div><br><br>
-                </div>
-                <div class="modal-footer bg-primary">
-                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
-            </form>
         </div>
-    </div>
-</div>
+    </ng-template>
+
+    <ng-template *ngSwitchCase="2">
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+        </button> 
+          
+        <button type="button" class="btn btn-danger" (click)="onClickButtonDelete($event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+        </button>
+        <div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form [formGroup]="formPersona">
+                        <div class="modal-body">
+                            <!-- imgBanner -->
+                            <div>
+                                <label for="InputImgBanner" class="form-label">Ingrese la URL de la imagen:</label>
+                                <input type="text" formControlName="imgBanner" class="form-control"
+                                    [ngClass]="{'is-invalid':ImgBanner?.errors && ImgBanner?.touched, 'is-valid':!ImgBanner?.errors && ImgBanner?.touched}"
+                                    id="InputImgBanner">
+                                <div *ngIf="ImgBanner?.errors && ImgBanner?.touched">
+                                    <p *ngIf="ImgBanner?.hasError('maxlength')" class="text-danger">La URL no puede contener más
+                                        de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                        </div>
+                        <div class="modal-footer bg-primary">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template *ngSwitchCase="3">
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+        </button> 
+          
+        <button type="button" class="btn btn-danger" (click)="onClickButtonDelete($event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+        </button>
+        <div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form [formGroup]="formPersona">
+                        <div class="modal-body">
+                            <!-- imgPerfil -->
+                            <div>
+                                <label for="InputImgPerfil" class="form-label">Ingrese la URL de la imagen:</label>
+                                <input type="text" formControlName="imgPerfil" class="form-control"
+                                    [ngClass]="{'is-invalid':ImgPerfil?.errors && ImgPerfil?.touched, 'is-valid':!ImgPerfil?.errors && ImgPerfil?.touched}"
+                                    id="InputImgPerfil">
+                                <div *ngIf="ImgPerfil?.errors && ImgPerfil?.touched">
+                                    <p *ngIf="ImgPerfil?.hasError('maxlength')" class="text-danger">La URL no puede contener más
+                                        de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                        </div>
+                        <div class="modal-footer bg-primary">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template *ngSwitchCase="4">
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+        </button> 
+          
+        <div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form [formGroup]="formPersona">
+                        <div class="modal-body">
+                            <!-- fullName -->
+                            <div>
+                                <label for="InputFullName" class="form-label">Ingrese el nombre completo:</label>
+                                <input type="text" formControlName="fullName" class="form-control"
+                                [ngClass]="{'is-invalid':FullName?.errors && FullName?.touched, 'is-valid':!FullName?.errors && FullName?.touched}"
+                                id="InputFullName" >
+                                <div *ngIf="FullName?.errors && FullName?.touched">                                    
+                                    <p *ngIf="FullName?.hasError('maxlength')" class="text-danger">La URL no puede contener más de 2000 caracteres.</p>
+                                </div>  
+                            </div><br><br>
+                        </div>
+                        <div class="modal-footer bg-primary">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template *ngSwitchDefault>
+        <button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+              </svg>
+        </button> 
+          
+        <button type="button" class="btn btn-danger" (click)="onClickButtonDelete($event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+        </button>
+        <div class="modal fade" id="persona" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title" id="staticBackdropLabel">Editar experiencia:</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form [formGroup]="formPersona">
+                        <div class="modal-body">
+                            <!-- descripcion -->
+                            <div>
+                                <label for="InputDescripcion" class="form-label">Ingrese la descripcion:</label>
+                                <input type="text" formControlName="descripcion" class="form-control"
+                                    [ngClass]="{'is-invalid':Descripcion?.errors && Descripcion?.touched, 'is-valid':!Descripcion?.errors && Descripcion?.touched}"
+                                    id="InputDescripcion">
+                                <div *ngIf="Descripcion?.errors && Descripcion?.touched">
+                                    <p *ngIf="Descripcion?.hasError('maxlength')" class="text-danger">La URL no puede contener
+                                        más de 2000 caracteres.</p>
+                                </div>
+                            </div><br><br>
+                            
+                        </div>
+                        <div class="modal-footer bg-primary">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-template>
