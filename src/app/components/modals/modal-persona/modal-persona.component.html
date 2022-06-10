@@ -1,8 +1,8 @@
-<button type="button" class="btn btn-success" (click)="onClickButtonEdit($event)" data-bs-toggle="modal" data-bs-target="#persona">
+<button type="button" class="btn btn-success"  data-bs-toggle="modal" data-bs-target="#persona">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
         <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
       </svg>
-  </button> 
+</button> 
   
 <button type="button" class="btn btn-danger" (click)="onClickButtonDelete($event)">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
@@ -20,24 +20,14 @@
             </div>
             <form [formGroup]="formPersona">
                 <div class="modal-body">
-                    <!-- nombre -->
+                    <!-- fullName -->
                     <div>
-                        <label for="InputNombre" class="form-label">Ingrese el nombre:</label>
-                        <input type="text" formControlName="nombre" class="form-control"
-                        [ngClass]="{'is-invalid':Nombre?.errors && Nombre?.touched, 'is-valid':!Nombre?.errors && Nombre?.touched}"
-                        id="InputNombre" >
-                        <div *ngIf="Nombre?.errors && Nombre?.touched">                                    
-                            <p *ngIf="Nombre?.hasError('maxlength')" class="text-danger">La URL no puede contener más de 2000 caracteres.</p>
-                        </div>  
-                    </div><br><br>
-                    <!-- apellido -->
-                    <div>
-                        <label for="InputApellido" class="form-label">Ingrese el apellido:</label>
-                        <input type="text" formControlName="apellido" class="form-control"
-                        [ngClass]="{'is-invalid':Apellido?.errors && Apellido?.touched, 'is-valid':!Apellido?.errors && Apellido?.touched}"
-                        id="InputApellido" >
-                        <div *ngIf="Apellido?.errors && Apellido?.touched">                                    
-                            <p *ngIf="Apellido?.hasError('maxlength')" class="text-danger">La URL no puede contener más de 2000 caracteres.</p>
+                        <label for="InputFullName" class="form-label">Ingrese el nombre completo:</label>
+                        <input type="text" formControlName="fullName" class="form-control"
+                        [ngClass]="{'is-invalid':FullName?.errors && FullName?.touched, 'is-valid':!FullName?.errors && FullName?.touched}"
+                        id="InputFullName" >
+                        <div *ngIf="FullName?.errors && FullName?.touched">                                    
+                            <p *ngIf="FullName?.hasError('maxlength')" class="text-danger">La URL no puede contener más de 2000 caracteres.</p>
                         </div>  
                     </div><br><br>
                     <!-- titulo -->
@@ -108,7 +98,7 @@
                     </div><br><br>
                 </div>
                 <div class="modal-footer bg-primary">
-                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Enviar</button>
+                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal" (click)="onClickButtonEdit($event)">Enviar</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
             </form>

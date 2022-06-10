@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,14 +7,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['../modals.css']
 })
 export class ModalPersonaComponent implements OnInit {
-  @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  
 
   formPersona: FormGroup;
 
   constructor(private formBuilder:FormBuilder) { 
     this.formPersona = this.formBuilder.group({
-      nombre:['',[Validators.maxLength(45)]],
-      apellido:['',[Validators.maxLength(45)]],
+      fullName:['',[Validators.maxLength(90)]],
       titulo:['',[Validators.maxLength(25)]],
       descripcion:['',[Validators.maxLength(250)]],
       imgPerfil:['',[Validators.maxLength(2000)]],
@@ -25,19 +24,16 @@ export class ModalPersonaComponent implements OnInit {
   }
 
   onClickButtonEdit(event : MouseEvent){
-    this.click.emit(event);
+    event.preventDefault();
   }
   onClickButtonDelete(event : MouseEvent){
-    this.click.emit(event);
+    
   }
 
-  get Nombre(){
-    return this.formPersona.get("nombre");
+  get FullName(){
+    return this.formPersona.get("fullName");
   }
 
-  get Apellido(){
-    return this.formPersona.get("apellido");
-  }
   get Titulo(){
     return this.formPersona.get("titulo");
   }

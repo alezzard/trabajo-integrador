@@ -15,4 +15,13 @@ export class PersonaService {
   public getPersona(): Observable<persona>{
     return this.http.get<persona>(this.URL+ 'traer/1');
   }
+
+  public putPersona(id: number, pers: persona): Observable<persona>{
+    return this.http.put<persona>(`${this.URL}editar/${id}`,pers);
+  }
+
+  public deletePersona(id: number): Observable<string>{
+    return this.http.delete<string>(`${this.URL}borrar/${id}`);
+  }
+
 }
