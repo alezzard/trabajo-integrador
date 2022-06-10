@@ -13,6 +13,14 @@ export class HabilidadService {
   constructor(private http: HttpClient) { }
 
   public getHabilidades(): Observable<habilidad[]>{
-    return this.http.get<habilidad[]>(this.URL+ 'traer');
+    return this.http.get<habilidad[]>(`${this.URL}traer`);
+  }
+
+  public deleteHabilidad(id: number): Observable<string>{
+    return this.http.delete<string>(`${this.URL}borrar/${id}`);
+  }
+
+  public putHabilidad(id: number, hab:habilidad): Observable<habilidad>{
+    return this.http.put<habilidad>(`${this.URL}editad/${id}`, hab);
   }
 }

@@ -13,6 +13,14 @@ export class ProyectoService {
   constructor(private http: HttpClient) { }
 
   public getProyecto(): Observable<proyecto[]>{
-    return this.http.get<proyecto[]>(this.URL+ 'traer');
+    return this.http.get<proyecto[]>(`${this.URL}traer`);
+  }
+
+  public deleteProyecto(id: number): Observable<string>{
+    return this.http.delete<string>(`${this.URL}borrar/${id}`);
+  }
+
+  public putProyecto(id: number, proy: proyecto): Observable<proyecto>{
+    return this.http.put<proyecto>(`${this.URL}editar/${id}`,proy);
   }
 }

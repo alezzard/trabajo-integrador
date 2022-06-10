@@ -10,7 +10,7 @@
                 <img src={{proy.imgProyecto}} class="img-fluid">
             </a>
             <div *ngIf="editable">
-                <app-modal-proyecto></app-modal-proyecto>
+                <app-modal-proyecto [proy]="proy"></app-modal-proyecto>
             </div> 
         </div>
     </div>

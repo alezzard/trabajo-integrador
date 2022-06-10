@@ -1,5 +1,8 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { proyecto } from 'src/app/model/proyecto.model';
+import { ProyectoService } from 'src/app/services/proyecto.service';
+import { ProyectosComponent } from '../../proyectos/proyectos.component';
 
 @Component({
   selector: 'app-modal-proyecto',
@@ -7,25 +10,30 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['../modals.css']
 })
 export class ModalProyectoComponent implements OnInit {
-  @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  @Input() proy: proyecto = new proyecto(0,"","","","","");
 
   formProyecto: FormGroup;
 
-  constructor(private formBuilder:FormBuilder) { 
+  constructor(private formBuilder:FormBuilder, private proyetoService: ProyectoService) { 
     this.formProyecto = this.formBuilder.group({
-      nombre:['',[Validators.maxLength(45)]],
-      periodo:['',[Validators.maxLength(25)]],
-      descripcion:['',[Validators.maxLength(250)]],
+      nombre:['',[Validators.minLength(3),Validators.maxLength(45)]],
+      periodo:['',[Validators.minLength(3),Validators.maxLength(25)]],
+      descripcion:['',[Validators.minLength(3),Validators.maxLength(250)]],
       imgLogo:['',[Validators.maxLength(2000)]],
       link:['',[Validators.maxLength(2000)]]
     })
   }
 
   onClickButtonEdit(event : MouseEvent){
-    this.click.emit(event);
+    event.preventDefault();
+    this.proyetoService
+    .putProyecto(this.proy.id,this.formProyecto.value)
+    .subscribe();
   }
   onClickButtonDelete(event : MouseEvent){
-    this.click.emit(event);
+    this.proyetoService
+    .deleteProyecto(this.proy.id)
+    .subscribe(); 
   }
 
   get Nombre(){

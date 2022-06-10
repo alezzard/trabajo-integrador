@@ -14,11 +14,11 @@ export class ExperienciaService {
   constructor(private http:HttpClient) { }
 
   public getExperienciasLaborales(): Observable<experiencia[]>{
-    return this.http.get<experiencia[]>(this.URL+ 'traer/laboral');
+    return this.http.get<experiencia[]>(`${this.URL}traer/laboral`);
   }
 
   public getExperienciasAcademicas(): Observable<experiencia[]>{
-    return this.http.get<experiencia[]>(this.URL+ 'traer/academica');
+    return this.http.get<experiencia[]>(`${this.URL}traer/academica`);
   }
 
   public deleteExperiencia(id: number): Observable<string>{

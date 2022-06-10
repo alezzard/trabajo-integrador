@@ -9,7 +9,7 @@ import { PersonaService } from 'src/app/services/persona.service';
 })
 export class HeaderComponent implements OnInit {
 
-  persona:persona = new persona("","","","","","","","","");
+  persona:persona = new persona(0,"","","","","","","","","");
 
   constructor(private personaService: PersonaService) { }
 

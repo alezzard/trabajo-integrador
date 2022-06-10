@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
@@ -20,7 +20,7 @@ export class ModalExperienciaComponent implements OnInit {
       titulo:['',[Validators.minLength(3),Validators.maxLength(45)]],
       periodo:['',[Validators.minLength(3),Validators.maxLength(25)]],
       descripcion:['',[Validators.minLength(3),Validators.maxLength(250)]],
-      imgLogo:['',[Validators.minLength(3),Validators.maxLength(2000)]]
+      imgLogo:['',[Validators.maxLength(2000)]]
     })
   }
 

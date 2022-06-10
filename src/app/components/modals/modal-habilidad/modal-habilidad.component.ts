@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component,  Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { habilidad } from 'src/app/model/habilidad.model';
+import { HabilidadService } from 'src/app/services/habilidad.service';
 
 @Component({
   selector: 'app-modal-habilidad',
@@ -7,22 +9,27 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['../modals.css']
 })
 export class ModalHabilidadComponent implements OnInit {
-  @Output() click: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>();
+  @Input() hab: habilidad = new habilidad(0,"",0)
 
   formHabilidad: FormGroup;
   
-  constructor(private formBuilder:FormBuilder) {
+  constructor(private formBuilder:FormBuilder, private habilidadService: HabilidadService) {
     this.formHabilidad = this.formBuilder.group({
-      porcentaje:['',[Validators.maxLength(3)]],
+      porcentaje:['',[Validators.minLength(1),Validators.maxLength(3)]],
       imgLogo:['',[Validators.maxLength(2000)]]
     })
   }
 
   onClickButtonEdit(event : MouseEvent){
-    this.click.emit(event);
+    event.preventDefault();
+    this.habilidadService
+    .putHabilidad(this.hab.id,this.formHabilidad.value)
+    .subscribe();
   }
   onClickButtonDelete(event : MouseEvent){
-    this.click.emit(event);
+    this.habilidadService
+    .deleteHabilidad(this.hab.id)
+    .subscribe();
   }
 
   get Porcentaje(){

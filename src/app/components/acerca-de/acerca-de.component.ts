@@ -8,7 +8,7 @@ import { PersonaService } from 'src/app/services/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona:persona = new persona("","","","","","","","","");
+  persona:persona = new persona(0,"","","","","","","","","");
 
   @Input() editable?: boolean;
 
