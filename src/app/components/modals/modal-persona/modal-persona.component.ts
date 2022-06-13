@@ -10,7 +10,7 @@ import { persona } from 'src/app/model/persona.model';
 export class ModalPersonaComponent implements OnInit {
   @Input() pers: persona = new persona(0, "", "", "", "", "", "", "", "")
   
-  option: number = 0;
+  @Input() option: number = 0;
 
   formPersona: FormGroup;
 
@@ -26,7 +26,7 @@ export class ModalPersonaComponent implements OnInit {
       github:['',[Validators.maxLength(2000)]]
     })
   }
-
+  //manejar las diferentes opciones para poder editar solo los campos de interes y mantener el resto intacto.
   onClickButtonEdit(event : MouseEvent){
     event.preventDefault();
   }
