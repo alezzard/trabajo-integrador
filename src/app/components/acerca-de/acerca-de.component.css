@@ -5,6 +5,7 @@
         border-radius: 50%;
         box-shadow: 0.15rem 0.15rem rgba(99, 97, 97, 0.527) ;
         left: 1%;
+        top: -3rem;
     }
 }
 @media (max-width: 575px){
@@ -13,6 +14,7 @@
         width: 50%;
         position: relative;
         left: 25%;
+        top: -2.5rem;
     }
 }
 .row{

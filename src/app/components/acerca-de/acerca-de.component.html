@@ -1,11 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2">
         <img id="foto-perfil" class="img-fluid " src={{persona.imgPerfil}}>
-        <app-modal-persona [option]="3"></app-modal-persona>
+        <div *ngIf="editable">
+            <app-modal-persona [option]="3"></app-modal-persona>
+        </div> 
     </div>
     <div class="col-xs-12 col-sm-2">
         <p id="nombre">{{persona.fullName}}</p>
-        <app-modal-persona [option]="4"></app-modal-persona>
+        <div *ngIf="editable">
+            <app-modal-persona [option]="4"></app-modal-persona>
+        </div> 
         <p id="titulo">{{persona.titulo}}</p>
     </div>
     <span class="col-xs-12 col-sm-8">

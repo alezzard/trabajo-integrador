@@ -20,8 +20,8 @@ export class PersonaService {
     return this.http.put<persona>(`${this.URL}editar/${id}`,pers);
   }
 
-  public deletePersona(id: number): Observable<string>{
+  /* public deletePersona(id: number): Observable<string>{
     return this.http.delete<string>(`${this.URL}borrar/${id}`);
-  }
+  } */
 
 }

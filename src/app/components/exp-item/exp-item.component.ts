@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { experiencia } from 'src/app/model/experiencia.model';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-exp-item',
@@ -9,9 +10,11 @@ import { experiencia } from 'src/app/model/experiencia.model';
 export class ExpItemComponent implements OnInit {
    @Input() exp: experiencia = new experiencia(0,"","","","");
 
-   @Input() editable?: boolean;
+    editable: boolean;
 
-  constructor() { }
+  constructor(private loginService: LoginService) {
+    this.editable = loginService.loggedIn();
+   }
 
   ngOnInit(): void {
   }
