@@ -1,9 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-sm-2 col-md-2">
-        <img id="foto-perfil" class="img-fluid " src={{persona.imgPerfil}}>
-        <div *ngIf="editable">
-            <app-modal-persona [option]="3"></app-modal-persona>
-        </div> 
+        <div id="foto-perfil">
+            <div *ngIf="editable; else noEditable">
+                <img  class="img-fluid " src={{persona.imgPerfil}}>
+                <app-modal-persona [option]="3"></app-modal-persona>
+            </div> 
+    
+            <ng-template #noEditable>
+                <img  class="img-fluid " src={{persona.imgPerfil}}>
+            </ng-template>
+        </div>
     </div>
     <div class="col-xs-12 col-sm-2">
         <p id="nombre">{{persona.fullName}}</p>

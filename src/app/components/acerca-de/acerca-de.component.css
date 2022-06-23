@@ -1,5 +1,5 @@
 @media (min-width: 576px){
-    #foto-perfil{
+    #foto-perfil img{
         position: absolute;
         width: 15%;
         border-radius: 50%;
@@ -7,14 +7,23 @@
         left: 1%;
         top: -3rem;
     }
+    #foto-perfil app-modal-persona{
+        position: relative;
+        float: right;
+    }
 }
 @media (max-width: 575px){
-    #foto-perfil{
+    #foto-perfil img{
         border-radius: 50%;
         width: 50%;
         position: relative;
         left: 25%;
         top: -2.5rem;
+    }
+    #foto-perfil app-modal-persona{
+        position: relative;        
+        top: 1rem;
+        left: 1rem;
     }
 }
 .row{

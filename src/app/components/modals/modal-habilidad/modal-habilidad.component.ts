@@ -25,6 +25,7 @@ export class ModalHabilidadComponent implements OnInit {
     this.habilidadService
     .putHabilidad(this.hab.id,this.formHabilidad.value)
     .subscribe();
+    this.ngOnInit();
   }
   onClickButtonDelete(event : MouseEvent){
     this.habilidadService
