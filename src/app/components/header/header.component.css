@@ -1,6 +1,11 @@
-#banner{
+#banner img{
     width:100%;
     z-index: -1;
     margin:  0;
     top: 5rem;
+}
+#banner app-modal-persona {
+    float: right;
+    position: relative;
+    bottom: 2.5rem;
 }

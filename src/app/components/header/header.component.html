@@ -1,8 +1,14 @@
 <div>
     <app-toolbar [persona]="persona"></app-toolbar>
-    <img src={{persona.imgBanner}}
-        class="img-fluid " id="banner">
-        <div *ngIf="editable">
+    <div id="banner">
+        <div *ngIf="editable; else noEditable">
+            <img src={{persona.imgBanner}} class="img-fluid " >
             <app-modal-persona [option]="2"></app-modal-persona>
-        </div> 
+            
+        </div>        
+        
+        <ng-template #noEditable>
+            <img src={{persona.imgBanner}} class="img-fluid ">
+        </ng-template>
+    </div>
 </div>
