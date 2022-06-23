@@ -6,7 +6,7 @@ div{
     padding: 1rem;
     background-color: #363636;
     transition: box-shadow 0.3s ease;
-    margin-bottom: 1rem;
+    margin: 0 1.8rem 1rem 1.8rem;
 }
 
 .card:hover{

@@ -12,7 +12,6 @@ export class PortfolioComponent implements OnInit {
 
   constructor(private loginService: LoginService) {
     this.isLoggedIn = this.loginService.loggedIn();
-    
    }
 
   ngOnInit(): void {
