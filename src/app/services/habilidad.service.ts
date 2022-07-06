@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { habilidad } from '../model/habilidad.model';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { habilidad } from '../model/habilidad.model';
 })
 export class HabilidadService {
 
-  URL = 'http://localhost:8080/habilidad/'
+  URL = environment.apiUrl+'habilidad/'
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +22,6 @@ export class HabilidadService {
   }
 
   public putHabilidad(id: number, hab:habilidad): Observable<habilidad>{
-    return this.http.put<habilidad>(`${this.URL}editad/${id}`, hab);
+    return this.http.put<habilidad>(`${this.URL}editar/${id}`, hab);
   }
 }

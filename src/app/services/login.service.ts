@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  URL = 'http://localhost:8080/login'
+  URL = environment.apiUrl+'login'
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http: HttpClient ) {
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem("currentUser")||'{}'));
